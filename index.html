@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zostaniesz moją walentynką?</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="wrapper">
+        <div class="test">
+            <img id="foto" src="https://gifdb.com/images/high/cute-love-bear-roses-ou7zho5oosxnpo6k.gif" alt="">
+            <p id="pytanie">Zostaniesz moją walentynką?</p>
+            <div class="buttons">
+                <button id="tak" onclick="jupi()">Tak</button>
+                <button id="nie" onclick="odmowa()">Nie</button>
+            </div>
+        </div>
+    </div>
+    <script>
+        let tak = document.getElementById("tak");
+        let nie = document.getElementById("nie");
+        let foto = document.getElementById("foto");
+        let pytanie = document.getElementById("pytanie");
+
+        var napis = Array("Jesteś pewna?", "Pewna na 100%?", "Potwierdzasz to?", "Słoneczko proszę", "Wiesz że cię kocham", "Pomyśl o tym", "Jeśli nie to będę smutny", "Jestem bardzo smutny", "Jestem bardzo bardzo smutny", "Jestem bardzo bardzo bardzo smutny", "Okej, przestane już...", "Żartowałem, PROSZĘ KLIKNIJ TAK", "Łamiesz mi serce :(", "Nie")
+
+        var indexTXT = 0;
+
+        function odmowa() {
+            
+            if(tak.style.fontSize==""){
+                tak.style.fontSize="15px";
+            }
+
+            tak.style.fontSize = parseFloat(tak.style.fontSize)+30+"px";
+            if(indexTXT<napis.length){
+                nie.innerHTML = napis[indexTXT];
+
+                indexTXT++;
+            } else {
+                indexTXT = 0;
+                nie.innerHTML = napis[indexTXT];
+            }
+        }
+
+        function jupi() {
+            tak.style.display = "none";
+            nie.style.display = "none";
+            pytanie.innerHTML = "KOCHAM CIĘ! <3"
+            foto.src = "https://i.pinimg.com/originals/39/6d/8c/396d8cf19235b7b437d1067045a63b5a.gif";
+        }
+    </script>
+</body>
+</html>
